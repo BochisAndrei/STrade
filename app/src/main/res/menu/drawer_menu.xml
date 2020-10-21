@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_piete_tranzactionare"
+            android:title="@string/piete_de_tranzactionare" />
+        <item
+            android:id="@+id/nav_portofoliu"
+            android:title="@string/portofoliu" />
+        <item
+            android:id="@+id/nav_setari"
+            android:title="@string/setari" />
+    </group>
+</menu>

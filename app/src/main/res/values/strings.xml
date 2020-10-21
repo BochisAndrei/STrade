@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ConTrade</string>
+    <string name="piete_de_tranzactionare">Piete de tranzactionare</string>
+    <string name="portofoliu">Portofoliu</string>
+    <string name="setari">Setari</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="authentication">Authentication</string>
+
+</resources>
