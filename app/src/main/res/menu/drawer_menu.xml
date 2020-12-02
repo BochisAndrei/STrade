@@ -4,12 +4,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_piete_tranzactionare"
+            android:icon="@drawable/ic_stock"
             android:title="@string/piete_de_tranzactionare" />
         <item
             android:id="@+id/nav_portofoliu"
+            android:icon="@drawable/ic_portofolio"
             android:title="@string/portofoliu" />
         <item
             android:id="@+id/nav_setari"
+            android:icon="@drawable/ic_settings"
             android:title="@string/setari" />
     </group>
 </menu>
