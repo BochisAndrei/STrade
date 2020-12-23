@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -42,4 +43,24 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //Firebase Authentication
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+
+    //Picasso Library with the photo transformation library
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'jp.wasabeef:picasso-transformations:2.2.1'
+
+    //okhttp implementation
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+
+    //coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5'
+
+    //Klaxon Json
+    implementation 'com.beust:klaxon:5.0.1'
+
+
+
 }
