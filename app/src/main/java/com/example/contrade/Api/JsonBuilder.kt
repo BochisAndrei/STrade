@@ -11,25 +11,28 @@ class JsonBuilder(var str_response: String) : Builder{
     override fun build() {
         var jObject = JSONObject(str_response)
 
-        var aJsonMetaData = JSONObject(jObject.getString("Meta Data"))
-        var symbol = aJsonMetaData.getString("2. Symbol")
-        var lastRefreshed = aJsonMetaData.getString("3. Last Refreshed")
-        var interval = aJsonMetaData.getString("4. Interval")
-        var timeZone = aJsonMetaData.getString("6. Time Zone")
-        company = Company(symbol,lastRefreshed,interval,timeZone)
+        if(jObject.has("Meta Data")){
+            var aJsonMetaData = JSONObject(jObject.getString("Meta Data"))
+            var symbol = aJsonMetaData.getString("2. Symbol")
+            var lastRefreshed = aJsonMetaData.getString("3. Last Refreshed")
+            var interval = aJsonMetaData.getString("4. Interval")
+            var timeZone = aJsonMetaData.getString("6. Time Zone")
+            company = Company(symbol,lastRefreshed,interval,timeZone)
 
-        var aJsonTimeSeries = JSONObject(jObject.getString("Time Series (5min)"))
-        var array = getDatesArray(str_response)
-        array.forEach {
-            var date = JSONObject(aJsonTimeSeries.getString(it))
-            var open = date.getString("1. open")
-            var high = date.getString("2. high")
-            var low = date.getString("3. low")
-            var close = date.getString("4. close")
-            var volume = date.getString("5. volume")
-            var price = DailyPrice(open.toDouble(), high.toDouble(), low.toDouble(), close.toDouble(), volume.toInt())
-            company.companyStockPrices.add(price)
+            var aJsonTimeSeries = JSONObject(jObject.getString("Time Series (5min)"))
+            var array = getDatesArray(str_response)
+            array.forEach {
+                var date = JSONObject(aJsonTimeSeries.getString(it))
+                var open = date.getString("1. open")
+                var high = date.getString("2. high")
+                var low = date.getString("3. low")
+                var close = date.getString("4. close")
+                var volume = date.getString("5. volume")
+                var price = DailyPrice(open.toDouble(), high.toDouble(), low.toDouble(), close.toDouble(), volume.toInt())
+                company.companyStockPrices.add(price)
+            }
         }
+
     }
 
     override fun getResult() : Company{

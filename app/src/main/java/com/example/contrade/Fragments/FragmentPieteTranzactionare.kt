@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.contrade.Api.Company
@@ -34,30 +36,35 @@ class FragmentPieteTranzactionare : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_piete_tranzactionare, container, false)
 
         var textBox = view.findViewById<TextView>(R.id.markets_textView)
-        var companyName = "IBM"
 
-        var url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="+ companyName +"&interval=5min&apikey=demo"
+        var edtText = view.findViewById<EditText>(R.id.markets_edtText)
+        var search = view.findViewById<ImageView>(R.id.markets_search)
 
-        val request = Request.Builder()
-            .url(url)
-            .build()
+        search.setOnClickListener {
+            var companyName = edtText.text.toString()
+            var url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="+ companyName +"&interval=5min&apikey=demo"
 
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                TODO("Not yet implemented")
-            }
+            val request = Request.Builder()
+                    .url(url)
+                    .build()
 
-            override fun onResponse(call: Call, response: Response) {
-                var str_response = response.body!!.string()
-                var builder = JsonBuilder(str_response)
-                builder.build()
-                var company = builder.getResult()
-
-                activity?.runOnUiThread {
-                    textBox.text = company.toString()
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    TODO("Not yet implemented")
                 }
-            }
-        })
+
+                override fun onResponse(call: Call, response: Response) {
+                    var str_response = response.body!!.string()
+                    var builder = JsonBuilder(str_response)
+                    builder.build()
+                    var company = builder.getResult()
+
+                    activity?.runOnUiThread {
+                        textBox.text = company.toString()
+                    }
+                }
+            })
+        }
 
         return view
     }
