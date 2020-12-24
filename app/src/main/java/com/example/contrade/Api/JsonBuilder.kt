@@ -1,5 +1,6 @@
 package com.example.contrade.Api
 
+import android.util.Log
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Klaxon
 import org.json.JSONObject
@@ -29,6 +30,7 @@ class JsonBuilder(var str_response: String) : Builder{
                 var close = date.getString("4. close")
                 var volume = date.getString("5. volume")
                 var price = DailyPrice(open.toDouble(), high.toDouble(), low.toDouble(), close.toDouble(), volume.toInt())
+                price.setDate(it)
                 company.companyStockPrices.add(price)
             }
         }

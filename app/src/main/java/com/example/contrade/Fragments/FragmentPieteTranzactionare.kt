@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.contrade.Api.Company
 import com.example.contrade.Api.DailyPrice
@@ -40,9 +42,18 @@ class FragmentPieteTranzactionare : Fragment() {
         var edtText = view.findViewById<EditText>(R.id.markets_edtText)
         var search = view.findViewById<ImageView>(R.id.markets_search)
 
+        //card view elements
+        var cardView = view.findViewById<CardView>(R.id.markets_card_view)
+        var companySymbol = view.findViewById<TextView>(R.id.markets_company_name)
+        var companyValue = view.findViewById<TextView>(R.id.markets_company_value)
+        var buyButton = view.findViewById<Button>(R.id.markets_buy_button)
+        var sellButton = view.findViewById<Button>(R.id.markets_sell_button)
+
+
         search.setOnClickListener {
             var companyName = edtText.text.toString()
-            var url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="+ companyName +"&interval=5min&apikey=demo"
+            cardView.visibility = View.GONE
+            var url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="+companyName+"&interval=5min&apikey=6Z3D5ZVPMIWPLD6R"
 
             val request = Request.Builder()
                     .url(url)
@@ -60,7 +71,12 @@ class FragmentPieteTranzactionare : Fragment() {
                     var company = builder.getResult()
 
                     activity?.runOnUiThread {
-                        textBox.text = company.toString()
+                        if(company.companySymbol != ""){
+                            cardView.visibility = View.VISIBLE
+                            companySymbol.text = company.companySymbol
+                            companyValue.text = company.calculateDifference()
+                            //textBox.text = company.toString()
+                        }
                     }
                 }
             })
