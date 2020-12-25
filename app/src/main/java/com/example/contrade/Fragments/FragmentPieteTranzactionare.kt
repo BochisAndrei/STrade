@@ -73,14 +73,28 @@ class FragmentPieteTranzactionare : Fragment() {
                         if (company.companySymbol != "") {
                             cardView.visibility = View.VISIBLE
                             companySymbol.text = company.companySymbol
-                            companyValue.text = company.calculateDifference()
+                            companyValue.text = company.calculateDifference(-1)
                             //textBox.text = company.toString()
                             buyButton.setOnClickListener {
                                 val intent = Intent(activity, BuyActivity::class.java)
+                                intent.putExtra(ExtraReply.REPLY_SYMBOL, company.companySymbol)
+                                //return close price
+                                intent.putExtra(ExtraReply.REPLY_CLOSE, company.calculateDifference(1))
+                                //return open price
+                                intent.putExtra(ExtraReply.REPLY_OPEN, company.calculateDifference(2))
+                                //return percent price
+                                intent.putExtra(ExtraReply.REPLY_PERCENT, company.calculateDifference(3))
                                 startActivity(intent)
                             }
                             sellButton.setOnClickListener {
                                 val intent = Intent(activity, SellActivity::class.java)
+                                intent.putExtra(ExtraReply.REPLY_SYMBOL, company.companySymbol)
+                                //return close price
+                                intent.putExtra(ExtraReply.REPLY_CLOSE, company.calculateDifference(1))
+                                //return open price
+                                intent.putExtra(ExtraReply.REPLY_OPEN, company.calculateDifference(2))
+                                //return percent price
+                                intent.putExtra(ExtraReply.REPLY_PERCENT, company.calculateDifference(-1))
                                 startActivity(intent)
                             }
                         }

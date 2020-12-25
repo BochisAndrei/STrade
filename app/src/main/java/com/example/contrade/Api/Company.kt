@@ -16,7 +16,8 @@ class Company(
         return "Company(companySymbol='$companySymbol', companyLastRefreshed='$companyLastRefreshed', companyInterval='$companyInterval', companyTimeZone='$companyTimeZone', companyStockPrices=$companyStockPrices)"
     }
 
-    fun calculateDifference() : String {
+    fun calculateDifference(operation : Int) : String {
+        //if operation is -1 return the last return else if 1 return open price if 2 return close price
         var hourMin = companyStockPrices.first().hour
         var minuteMin = 59
         var hourMax = -1
@@ -44,8 +45,17 @@ class Company(
         }
         var result = close-open
 
-        var procent = result/open * 100
+        var percent = result/open * 100
 
-        return String.format("%.2f", result) + " (" + String.format("%.2f", procent) + "%)"
+        //return close price
+        if(operation == 1){
+            return close.toString()
+        }
+        //return open price
+        if(operation == 2){
+            return open.toString()
+        }
+
+        return String.format("%.2f", result) + " (" + String.format("%.2f", percent) + "%)"
     }
 }
