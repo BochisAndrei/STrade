@@ -32,13 +32,14 @@
                 android:id="@+id/activity_sell_button_buy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/primary_blue"
                 android:text="Buy"
                 android:layout_marginEnd="40dp" />
             <Button
                 android:id="@+id/activity_sell_button_sell"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/holo_green_light"
+                android:backgroundTint="@color/primary_green"
                 android:text="Sell"
                 android:layout_marginEnd="40dp" />
         </LinearLayout>
@@ -50,12 +51,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:gravity="center_horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="AMZN"
+            android:textColor="@color/primary_dark_blue"
             android:textSize="35sp"
-            android:textColor="@color/black"
-            android:text="AMZN"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -63,19 +66,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="131.88"
+            android:textColor="@color/primary_grey"
             android:textSize="30sp"
-            android:textColor="#777"
-            android:text="131.88"/>
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:textColor="#777"
+            android:text="1.01 (1.15%)"
+            android:textColor="@color/primary_grey"
             android:textSize="20sp"
-            android:text="1.01 (1.15%)"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -94,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/primary_dark_blue"
             android:text="5000"
             android:textCursorDrawable = "@null"
             android:background="@drawable/bg_edt"
@@ -115,7 +122,7 @@
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/holo_green_light"
+            android:backgroundTint="@color/primary_green"
             android:text="Set order"/>
     </LinearLayout>
 
@@ -130,20 +137,23 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
         android:gravity="center_horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:text="Your balance: "/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_marginStart="30dp"
+            android:text="Your balance: "
+            android:textColor="@color/primary_dark_blue"
             android:textSize="20sp"
-            android:text="100.000 € "/>
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="100.000 € "
+            android:textColor="@color/primary_dark_blue"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

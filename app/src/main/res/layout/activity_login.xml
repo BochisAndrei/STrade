@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +13,6 @@
         android:layout_width="45dp"
         android:layout_height="35dp"
         android:src="@drawable/ic_left_arrow"/>
-
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -157,6 +155,7 @@
                 android:id="@+id/login_layout_login"
                 android:layout_width="260dp"
                 android:layout_height="49dp"
+                android:backgroundTint="@color/primary_green"
                 android:text="login"
                 android:layout_gravity="center_horizontal"/>
 
@@ -171,6 +170,7 @@
                 android:id="@+id/login_layout_register"
                 android:layout_width="260dp"
                 android:layout_height="49dp"
+                android:backgroundTint="@color/primary_blue"
                 android:text="register"
                 android:layout_gravity="center_horizontal"/>
 

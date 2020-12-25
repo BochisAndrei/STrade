@@ -192,6 +192,7 @@
             android:id="@+id/register_layout_register"
             android:layout_width="260dp"
             android:layout_height="49dp"
+            android:backgroundTint="@color/primary_green"
             android:text="register"
             android:layout_gravity="center_horizontal"/>
         <TextView
@@ -205,6 +206,7 @@
             android:id="@+id/register_layout_login"
             android:layout_width="260dp"
             android:layout_height="49dp"
+            android:backgroundTint="@color/primary_blue"
             android:text="login"
             android:layout_gravity="center_horizontal"/>
 
