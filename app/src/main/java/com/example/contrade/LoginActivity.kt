@@ -74,6 +74,13 @@ class LoginActivity : AppCompatActivity() {
                                 this, "Authentication successful.",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            var mainIntent = Intent(this, MainActivity::class.java)
+                            startActivity(mainIntent)
+                            overridePendingTransition(
+                                R.anim.slide_in_left,
+                                R.anim.slide_out_right
+                            )
+                            finish()
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(

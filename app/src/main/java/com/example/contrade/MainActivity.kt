@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        signOut()
         //instantiate drawer components
         setup_drawer()
 
@@ -132,11 +131,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         )
     }
 
-    fun signOut(){
-        FirebaseAuth.getInstance().signOut() //sign out from firebase
-        var sharedPreferences : SharedPreferences = getSharedPreferences(sharedP, Context.MODE_PRIVATE)
-        var editor : SharedPreferences.Editor = sharedPreferences.edit()
-        editor.putString("USERNAME", "")
-        editor.apply()
-    }
 }
