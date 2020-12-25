@@ -44,7 +44,7 @@ class Company(
         }
         var result = close-open
 
-        var procent = result/open *100
+        var procent = result/open * 100
 
         return String.format("%.2f", result) + " (" + String.format("%.2f", procent) + "%)"
     }

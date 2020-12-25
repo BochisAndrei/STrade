@@ -1,5 +1,6 @@
 package com.example.contrade.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,12 +11,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import com.example.contrade.Api.Company
-import com.example.contrade.Api.DailyPrice
 import com.example.contrade.Api.JsonBuilder
+import com.example.contrade.BuyActivity
 import com.example.contrade.R
+import com.example.contrade.SellActivity
 import okhttp3.*
-import org.json.JSONObject
 import java.io.IOException
 
 class FragmentPieteTranzactionare : Fragment() {
@@ -49,7 +49,6 @@ class FragmentPieteTranzactionare : Fragment() {
         var buyButton = view.findViewById<Button>(R.id.markets_buy_button)
         var sellButton = view.findViewById<Button>(R.id.markets_sell_button)
 
-
         search.setOnClickListener {
             var companyName = edtText.text.toString()
             cardView.visibility = View.GONE
@@ -71,11 +70,19 @@ class FragmentPieteTranzactionare : Fragment() {
                     var company = builder.getResult()
 
                     activity?.runOnUiThread {
-                        if(company.companySymbol != ""){
+                        if (company.companySymbol != "") {
                             cardView.visibility = View.VISIBLE
                             companySymbol.text = company.companySymbol
                             companyValue.text = company.calculateDifference()
                             //textBox.text = company.toString()
+                            buyButton.setOnClickListener {
+                                val intent = Intent(activity, BuyActivity::class.java)
+                                startActivity(intent)
+                            }
+                            sellButton.setOnClickListener {
+                                val intent = Intent(activity, SellActivity::class.java)
+                                startActivity(intent)
+                            }
                         }
                     }
                 }

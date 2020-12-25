@@ -11,8 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConTrade">
-        <activity android:name=".RegisterActivity"
-            android:theme="@style/AppThemeTransparent" ></activity>
+        <activity android:name=".SellActivity"
+            android:theme="@style/AppThemeTransparent"/>
+        <activity android:name=".BuyActivity"
+            android:theme="@style/AppThemeTransparent"/>
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/AppThemeTransparent" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppThemeTransparent" />
