@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:textSize="35sp"
             android:textColor="@color/black"
-            android:text="AMZN"/>
+            android:text="AAPL"/>
     </LinearLayout>
 
     <LinearLayout
