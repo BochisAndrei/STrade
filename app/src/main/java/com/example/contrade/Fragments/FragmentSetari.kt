@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.contrade.*
 import com.google.firebase.auth.FirebaseAuth
@@ -27,6 +29,8 @@ class FragmentSetari : Fragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.fragment_setari, container, false)
+        (activity as MainActivity).toolbar.findViewById<TextView>(R.id.main_activity_toolbar_title).text = "Settings"
+        (activity as MainActivity).toolbar.background = ContextCompat.getDrawable(activity as MainActivity, R.color.primary_green)
 
         val openChangeName = view.findViewById<ImageView>(R.id.fragment_setari_change_usernane)
         val openChangePassword = view.findViewById<ImageView>(R.id.fragment_setari_change_password)

@@ -170,6 +170,7 @@
         android:backgroundTint="@color/primary_green"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
         android:text="LOGOUT" />
 
 </LinearLayout>
