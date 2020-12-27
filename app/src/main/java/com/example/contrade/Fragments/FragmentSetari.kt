@@ -30,12 +30,18 @@ class FragmentSetari : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.fragment_setari, container, false)
         (activity as MainActivity).toolbar.findViewById<TextView>(R.id.main_activity_toolbar_title).text = "Settings"
-        (activity as MainActivity).toolbar.background = ContextCompat.getDrawable(activity as MainActivity, R.color.primary_green)
 
         val openChangeName = view.findViewById<ImageView>(R.id.fragment_setari_change_usernane)
         val openChangePassword = view.findViewById<ImageView>(R.id.fragment_setari_change_password)
 
         var logout = view.findViewById<Button>(R.id.fragment_setari_btn_logout)
+
+        //get username from shared preferences if exist
+        var sharedPreferences : SharedPreferences = (activity as MainActivity).getSharedPreferences(sharedP, Context.MODE_PRIVATE)
+        var userName = sharedPreferences.getString("USERNAME", "")
+        if(userName != "") {
+            view.findViewById<TextView>(R.id.fragment_setari_name).text = userName
+        }
 
         logout.setOnClickListener {
             signOut()

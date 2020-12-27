@@ -30,9 +30,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="5dp"
+            android:onClick="openLogin"
             android:text="@string/authentication"
-            android:textColor="#FFFF"
+            android:textColor="#fff"
             android:textSize="25sp"
-            android:onClick="openLogin" />
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

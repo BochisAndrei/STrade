@@ -5,12 +5,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import androidx.lifecycle.ViewModelProvider
 import com.example.contrade.Fragments.ExtraReply
+import com.example.contrade.RoomDatabase.TransactionViewModel
+import com.example.contrade.RoomDatabase.Tranzaction
 
 class SellActivity : AppCompatActivity() {
+    private lateinit var tradeViewModel: TransactionViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sell)
+
+        tradeViewModel = ViewModelProvider(this).get(TransactionViewModel::class.java)
 
         var textSymbol = findViewById<TextView>(R.id.activity_sell_symbol)
         var textClose = findViewById<TextView>(R.id.activity_sell_close_price)
@@ -50,6 +56,19 @@ class SellActivity : AppCompatActivity() {
             overridePendingTransition(
                 R.anim.slide_in_left,
                 R.anim.slide_out_right
+            )
+            finish()
+        }
+
+        var set_order = findViewById<Button>(R.id.activity_sell_set_order)
+        set_order.setOnClickListener {
+            var transaction = Tranzaction(symbol, "", "", Integer.parseInt(edtText.text.toString()), close.toDouble(),"SELL",true)
+            tradeViewModel.insert(transaction)
+            var mainIntent = Intent(this, MainActivity::class.java)
+            startActivity(mainIntent)
+            overridePendingTransition(
+                    R.anim.slide_in_left,
+                    R.anim.slide_out_right
             )
             finish()
         }

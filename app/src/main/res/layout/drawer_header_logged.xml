@@ -34,6 +34,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="18dp"
                 android:textColor="#fff"
+                android:textStyle="bold"
                 android:textSize="20sp" />
 
         </LinearLayout>

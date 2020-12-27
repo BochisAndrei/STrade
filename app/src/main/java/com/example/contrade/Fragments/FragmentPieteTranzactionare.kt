@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.contrade.Api.JsonBuilder
 import com.example.contrade.BuyActivity
+import com.example.contrade.MainActivity
 import com.example.contrade.R
 import com.example.contrade.SellActivity
 import okhttp3.*
@@ -36,6 +37,7 @@ class FragmentPieteTranzactionare : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_piete_tranzactionare, container, false)
+        (activity as MainActivity).toolbar.findViewById<TextView>(R.id.main_activity_toolbar_title).text = "Piete de tranzactionare"
 
         var textBox = view.findViewById<TextView>(R.id.markets_textView)
 
