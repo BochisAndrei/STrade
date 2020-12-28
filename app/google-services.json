@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "702514892734",
+    "project_id": "strade-ebb89",
+    "storage_bucket": "strade-ebb89.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702514892734:android:a99cb766abcade2cc173ef",
+        "android_client_info": {
+          "package_name": "com.example.contrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702514892734-fjis0eknln4ojud0k244hi91gg2t6m95.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSCBB85aAebA4MwimmvaNQrZN2Wzb8NEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702514892734-fjis0eknln4ojud0k244hi91gg2t6m95.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
